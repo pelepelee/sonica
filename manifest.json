@@ -1,22 +1,24 @@
 {
     "manifest_version": 3,
-    "name": "My Magical Clone",
+    "name": "Sonica - Gerenciador de Macros",
     "version": "1.0",
-    "description": "Create and use text macros!",
-    "permissions": ["storage", "activeTab", "scripting"],
-    "host_permissions": ["<all_urls>"],
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icon.png"
-    },
+    "description": "Gerencie macros de forma eficiente com Sonica.",
+    "permissions": [
+        "tabs",
+        "storage"
+    ],
     "background": {
-      "service_worker": "background.js"
+        "service_worker": "background.js"
     },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"]
-      }
-    ]
-  }
-  
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "icons": {
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    }
+}
